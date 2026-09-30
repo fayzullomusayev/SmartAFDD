@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#f4f7f5">
+    <title>SmartAFDD AI | Sanoat Boshqaruv Markazi</title>
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #f4f7f5;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --accent-green: #10b981;
+            --accent-dark-green: #059669;
+            --primary-glow: rgba(16, 185, 129, 0.15);
+            --gold: #d97706;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* TO'RTBURCHAK ASOSIY KONTENER */
+        .app-container {
+            width: 100%;
+            max-width: 440px;
+            height: 100%;
+            max-height: 880px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 0px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        :fullscreen .app-container, :-webkit-full-screen .app-container {
+            max-height: 100dvh;
+            height: 100dvh;
+            border-radius: 0;
+            border: none;
+        }
+
+        .hero { text-align: center; margin-top: 6px; margin-bottom: 16px; }
+
+        .logo-wrapper {
+            position: relative;
+            width: 68px;
+            height: 68px;
+            margin: 0 auto 10px;
+        }
+
+        .logo-icon {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            background: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-icon i {
+            font-size: 30px;
+            color: var(--accent-dark-green);
+            animation: pulseIcon 2s infinite ease-in-out;
+        }
+
+        @keyframes pulseIcon {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        .hero h1 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--accent-dark-green);
+        }
+
+        .hero p { font-size: 11px; color: var(--text-muted); margin-top: 2px; font-weight: 600; }
+
+        .author-tag {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 8px;
+            padding: 6px 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .author-tag i { color: var(--gold); font-size: 12px; }
+        .author-tag span {
+            font-size: 10px;
+            font-weight: 800;
+            color: #b45309;
+        }
+
+        .sector-banner {
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .sector-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 9px;
+            color: var(--text-muted);
+            font-weight: 700;
+        }
+
+        .sector-item i { font-size: 15px; color: var(--accent-dark-green); }
+
+        .features-section { margin-bottom: 14px; }
+
+        .section-title {
+            font-size: 10px;
+            font-weight: 800;
+            color: var(--accent-dark-green);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 10px 12px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .feature-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: #ecfdf5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--accent-dark-green);
+            font-size: 15px;
+            flex-shrink: 0;
+            border: 1px solid #a7f3d0;
+        }
+
+        .feature-text h4 { font-size: 11px; font-weight: 700; color: var(--text-main); }
+        .feature-text p { font-size: 9px; color: var(--text-muted); margin-top: 1px; line-height: 1.3; font-weight: 500; }
+
+        .login-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 14px;
+        }
+
+        .input-group { margin-bottom: 8px; }
+        .input-group:last-child { margin-bottom: 0; }
+        .input-group label { display: block; font-size: 9px; font-weight: 700; color: var(--text-muted); margin-bottom: 3px; }
+
+        .input-field {
+            width: 100%;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 8px 10px;
+            color: var(--text-main);
+            font-size: 10px;
+            outline: none;
+            font-weight: 600;
+        }
+
+        .btn-launch {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: var(--accent-green);
+            color: #ffffff;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+            transition: all 0.2s;
+        }
+
+        .btn-launch:hover {
+            background: var(--accent-dark-green);
+        }
+
+        .footer-note { text-align: center; font-size: 9px; color: var(--text-muted); margin-top: 10px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="hero">
+            <div class="logo-wrapper">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shield-cat"></i>
+                </div>
+            </div>
+            <h1>SmartAFDD AI</h1>
+            <p>Sanoat Obyektlari uchun Intellektual Yong'in va Avariya Oldini Olish Tizimi</p>
+            
+            <div class="author-tag">
+                <i class="fa-solid fa-award"></i>
+                <span>Loyiha Muallifi: Turg'unova Diyora</span>
+            </div>
+        </div>
+
+        <div class="sector-banner">
+            <div class="sector-item"><i class="fa-solid fa-utensils"></i><span>Sanoat Oshxonasi</span></div>
+            <div class="sector-item"><i class="fa-solid fa-mug-hot"></i><span>Restoran va Kafe</span></div>
+            <div class="sector-item"><i class="fa-solid fa-industry"></i><span>Ishlab Chiqarish</span></div>
+        </div>
+
+        <div class="features-section">
+            <div class="section-title"><i class="fa-solid fa-bolt-lightning"></i> Tizimning Innovatsion Afzalliklari</div>
+            <div class="feature-card">
+                <div class="feature-icon" style="color: #ef4444; background: #fef2f2; border-color: #fca5a5;">
+                    <i class="fa-solid fa-fire-extinguisher"></i>
+                </div>
+                <div class="feature-text">
+                    <h4>Yong'in Xavfini 99% Oldini Olish</h4>
+                    <p>Yuqori quvvatli pechlar va rozetkalardagi yashirin uchqunlarni (Parallel/Series Arc) 0.02s ichida aniqlab uzadi.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-brain"></i></div>
+                <div class="feature-text">
+                    <h4>Soxta O'chishlarni Bloklash</h4>
+                    <p>Sanoat mikserlari va cho'tkali motorlar (drel, bolgarka) shovqinini xavfli yoydan aniq ajratadi hamda soxta o'chmaydi.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                <div class="feature-text">
+                    <h4>Uzluksiz Selektiv Himoya</h4>
+                    <p>Avariya yuz berganda butun obyekt o'chib qolmaydi — faqat nosoz apparat ulangan liniya avtomatik ajratiladi.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-box">
+            <div class="input-group">
+                <label><i class="fa-solid fa-location-dot"></i> Boshqariladigan Obyekt</label>
+                <input type="text" class="input-field" value="O'zbekiston, Farg'ona viloyati (Sanoat Boshqaruvi)" readonly>
+            </div>
+            <div class="input-group">
+                <label><i class="fa-solid fa-microchip"></i> Modul Ishchi Rejimi</label>
+                <input type="text" class="input-field" value="AI-FFT Spectrogram Active (NILM Mode)" readonly>
+            </div>
+        </div>
+
+        <button class="btn-launch" onclick="launchSystem()">
+            <span>TIZIMNI ISHGA TUSHIRISH</span>
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+        <div class="footer-note">SmartAFDD AI Enterprise v2.4 • Energetika va Xavfsizlik 2026</div>
+    </div>
+
+    <script>
+        function launchSystem() {
+            sessionStorage.setItem("authenticated", "true");
+            
+            const btn = document.querySelector('.btn-launch');
+            btn.style.transform = 'scale(0.97)';
+            btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> ISHGA TUSHMOQDA...`;
+            
+            setTimeout(() => {
+                window.location.assign("./index.html");
+            }, 500);
+        }
+    </script>
+</body>
+</html>
